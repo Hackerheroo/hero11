@@ -91,7 +91,7 @@ def menu_login():
 	print("[2] Login With Fb Password")
 	print("[0] Direct Exir")
 	print(50*"-")
-	menu_login2() 
+
 def menu_login2():
 	user_select = raw_input("\n[!] Choose ---> ")
 	if user_select =="1":
