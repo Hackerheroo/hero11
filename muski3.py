@@ -560,4 +560,4 @@ def a_s():
 
 
 if __name__ == '__main__':
-    reg()
+    login()
