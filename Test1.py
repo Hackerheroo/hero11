@@ -1,9 +1,6 @@
-#!/usr/bin/python2
-#coding=utf-8
-#The Credit For This Code Goes To Mansoor Khan
-#If You Wanna Take Credits For This Code, Please Look Yourself Again...
-#Reserved2020
-
+#TOOL CREATOR BY HERO 😉
+#CODING MASTERHERO 🤭😎
+#TU DECRYPT KRNY MA,LGA RHA TAB TAK ME TERE BHN CHOD DON GA😂😏
 
 import os, sys, time, datetime, random, hashlib, re, threading, json, getpass, urllib, cookielib, requests, uuid, string
 from multiprocessing.pool import ThreadPool
@@ -84,7 +81,8 @@ def reg2():
     time.sleep(5)
     login()
 
- def login():
+
+def login():
     os.system('clear')
     try:
         token = open('access_token.txt', 'r').read()
@@ -121,8 +119,8 @@ def menu():
         print ''
         time.sleep(1)
         login()
-        
-        os.system('clear')
+
+    os.system('clear')
     print logo
     print ''
     print '             LOGIN ID : ' + name
