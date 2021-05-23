@@ -83,6 +83,7 @@ def reg2():
     print ' \xe2\x80\xa2 THIS TOOL IS COMPLETELY CODED BY RANA AAHIL \xe2\x80\xa2 '
     time.sleep(5)
     login()
+
  def login():
     os.system('clear')
     try:
@@ -358,4 +359,4 @@ def crack_select():
     crack()
 
 
-menu_login()
+reg()
