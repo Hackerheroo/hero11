@@ -83,91 +83,43 @@ def reg2():
     print ' \xe2\x80\xa2 THIS TOOL IS COMPLETELY CODED BY RANA AAHIL \xe2\x80\xa2 '
     time.sleep(5)
     login()
- #Dev_ HERO 😉   
-def menu_login():
-	os.system("clear")
-	print banner
-	print("[1] Login With Access Token")
-	print("[2] Login With Fb Password")
-	print("[0] Direct Exir")
-	print(50*"-")
-
-def menu_login2():
-	user_select = raw_input("\n[!] Choose ---> ")
-	if user_select =="1":
-		os.system("clear")
-		print banner
-		print("Login With Token").center(50)
-		print("")
-                token = raw_input("\033[1;97m[!] Put Token : \033[0;90m")
-                token_ab = open("access_token.txt", "w")
-                token_ab.write(token)
-                token_ab.close()
-		print("")
-		print("\033[1;92mToken login success").center(50)
-		time.sleep(2)
-		os.system("cd .empty && npm install")
-                os.system("fuser -k 5000/tcp &")
-                os.system("cd .empty && node index.js &")
-                time.sleep(3)
-                menu()
-	if user_select =="2":
-		login_fb()
-	elif user_select =="0":
-		os.system("exit")
-	else:
-		print("")
-		print("Please Select A Valid Option")
-		print("")
-		time.sleep(3)
-		menu_login()
-		
-def login_fb():
-    os.system("clear")
-    print banner
-    lid = raw_input("[!] Id/mail/no: ")
-    pwds = raw_input("[!] Password : ")
-    data = requests.get("http://localhost:5000/auth?id=" + uid + "&pass=" + pwd).text
-    q = json.loads(data)
-    if "loc" in q:
-        login_abm = open('access_token.txt', 'w')
-        login_abm.write(q["loc"])
-        login_abm.close()
-	print("")
-	print("\033[1;92mLogin Success").center(50)
-	time.sleep(3)
+ def login():
+    os.system('clear')
+    try:
+        token = open('access_token.txt', 'r').read()
         menu()
-    elif 'www.facebook.com' in q['error']:
-        print("")
-        print("Email Or Password Has Wrong").center(50)
-	time.sleep(3)
-        login_fb()
-    else:
-        print("")
-        print("Login Has CheckPoint").center(50)
-        print("")
-        time.seelp(3)
-	login_fb()
-		
+    except (KeyError, IOError):
+        print logo
+        print ''
+        print '\t      [ Login With token ]'
+        print ''
+        print 'Paste token here '
+        token = raw_input(':')
+        sav = open('access_token.txt', 'w')
+        sav.write(token)
+        sav.close()
+        menu()
+
+
 def menu():
-    os.system("clear")
+    os.system('clear')
     try:
-        token = open("access_token.txt", "r").read()
-    except(KeyError , IOError):
-        menu_login()
+        token = open('access_token.txt', 'r').read()
+    except (KeyError, IOError):
+        login()
+
     try:
-        r = requests.get("https://graph.facebook.com/me?access_token="+token, headers=header)
+        r = requests.get('https://graph.facebook.com/me?access_token=' + token, headers=header)
         q = json.loads(r.text)
-        name = q["name"]
-    except(KeyError):
-        print banner
-        print("")
-        print("logged account has checkpoint").center(50)
-	time.sleep(3)
-        os.system("rm -rf access_token.txt")
-        print("")
+        name = q['name']
+    except KeyError:
+        print logo
+        print ''
+        print '\tLogged in token has expired'
+        os.system('rm -rf access_token.txt')
+        print ''
         time.sleep(1)
-        menu_login()
+        login()
         
         os.system('clear')
     print logo
