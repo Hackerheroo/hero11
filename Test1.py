@@ -1,6 +1,9 @@
-#TOOL CREATOR BY HERO 😉
-#CODING MASTERHERO 🤭😎
-#TU DECRYPT KRNY MA,LGA RHA TAB TAK ME TERE BHN CHOD DON GA😂😏
+#!/usr/bin/python2
+#coding=utf-8
+#The Credit For This Code Goes To Mansoor Khan
+#If You Wanna Take Credits For This Code, Please Look Yourself Again...
+#Reserved2020
+
 
 import os, sys, time, datetime, random, hashlib, re, threading, json, getpass, urllib, cookielib, requests, uuid, string
 from multiprocessing.pool import ThreadPool
@@ -403,4 +406,4 @@ def crack_select():
     crack()
 
 
-reg()
+menu_login()
